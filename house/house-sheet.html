@@ -1,0 +1,226 @@
+<title>MoiVoyage House Sheet</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Caveat:wght@500&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+/* Layout: the sheet alternates cover (dark) and page (light) specimens; the chrome between them follows the viewer's theme. */
+:root{
+  --bg:#F6F4EF;--fg:#1E2430;--fg2:#575C68;--line:#D8D4CA;--accent:#B8322F;
+  --field:#F6F4EF;--raised:#ECE9E1;--paper:#FFFEFB;--ink:#1E2430;--inksoft:#575C68;--pencil:#6A645E;--stamp:#B8322F;--rule:#D8D4CA;
+  --cover:#1E2430;--cover-raised:#283040;--cream:#F6F4EF;--cream-dim:#B9BEC9;--stamp-light:#E8766E;--cover-line:#3B4455;
+  --title:"Jost",system-ui,sans-serif;--fact:"Lora",Georgia,serif;--hand:"Caveat",cursive;--mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#15181E;--fg:#EDEAE2;--fg2:#A9ADB6;--line:#343A45;--accent:#E8766E;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#15181E;--fg:#EDEAE2;--fg2:#A9ADB6;--line:#343A45;--accent:#E8766E;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--fact);font-size:17px;line-height:1.55;padding-inline:16px;padding-block:0 64px}
+.wrap{max-width:820px;margin:0 auto}
+h1,h2,h3{font-family:var(--title);text-wrap:balance;line-height:1.15;margin:0;font-weight:500}
+h1{font-size:clamp(30px,5vw,44px)}
+h2{font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--fg2);margin-top:56px;padding-top:16px;border-top:1px solid var(--line)}
+h3{font-size:19px;font-weight:600;margin-top:20px}
+p{max-width:66ch}
+.muted{color:var(--fg2);font-size:15px}
+.hero{padding-block:48px 8px;display:grid;gap:10px}
+.eyebrow{font-family:var(--title);text-transform:uppercase;letter-spacing:.22em;font-size:12px;font-weight:600;color:var(--accent)}
+table{border-collapse:collapse;width:100%;font-size:15px;margin-top:10px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--title);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg2);font-weight:600}
+.tablewrap{overflow-x:auto}
+.mono{font-family:var(--mono);font-size:13px}
+
+/* specimens */
+.spec{border-radius:10px;padding:28px 24px;margin-top:16px}
+.spec.cover{background:var(--cover);color:var(--cream)}
+.spec.page{background:var(--field);color:var(--ink);border:1px solid var(--rule)}
+.spec p{color:inherit}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+@media (max-width:640px){.two{grid-template-columns:1fr}}
+
+/* the stamp */
+.stamp{display:inline-block;transform:rotate(-8deg)}
+.stamp svg{display:block;width:100%;height:100%}
+.sizes{display:flex;gap:28px;align-items:flex-end;flex-wrap:wrap;margin-top:14px}
+.sizes figure{margin:0;text-align:center;font-family:var(--mono);font-size:12px;color:inherit;opacity:.8}
+.wordmark{font-family:var(--title);font-weight:500;letter-spacing:.3em;text-transform:uppercase;font-size:clamp(20px,4vw,30px)}
+
+/* voyage stamp */
+.vstamp{display:inline-grid;place-items:center;text-align:center;border:2px solid currentColor;border-radius:8px;padding:10px 16px;min-width:150px;line-height:1.1;transform:rotate(-4deg)}
+.vstamp .name{font-family:var(--hand);font-size:26px}
+.vstamp .dates{font-family:var(--title);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-top:4px}
+
+/* passport mockups */
+.phone{width:290px;max-width:100%;margin:0 auto;border-radius:34px;padding:9px;background:#111;box-shadow:0 14px 40px rgba(0,0,0,.28)}
+.screen{border-radius:26px;overflow:hidden;min-height:540px;position:relative;font-size:13.5px;line-height:1.4;padding:22px 18px}
+.screen.cover{background:var(--cover);color:var(--cream)}
+.screen.page{background:var(--field);color:var(--ink)}
+.screen .wordmark{font-size:15px}
+.screen .cta{display:inline-block;margin-top:18px;font-family:var(--title);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:11px 16px;border-radius:999px;background:var(--cream);color:var(--cover)}
+.screen.page .cta{background:var(--ink);color:var(--cream)}
+.screen .count{font-family:var(--title);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-dim)}
+.screen.page .count{color:var(--inksoft)}
+.entry{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding-block:14px;border-bottom:1px solid var(--rule)}
+.entry .t{font-family:var(--title);font-weight:600;font-size:15px;line-height:1.2}
+.entry .d{font-size:13px;color:var(--inksoft)}
+.entry .tpl{font-family:var(--title);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--inksoft);margin-top:3px}
+.entry .need{font-size:12.5px;color:var(--pencil);font-style:italic;margin-top:4px}
+.entry .vstamp{transform:rotate(5deg);min-width:0;padding:6px 10px}
+.entry .vstamp .name{font-size:19px}
+.entry .vstamp .dates{font-size:9px}
+.making{margin-top:18px}
+.making .bar{height:3px;background:var(--cover-line);border-radius:2px;overflow:hidden;margin-top:8px}
+.making .bar i{display:block;height:100%;width:62%;background:var(--stamp-light)}
+.making .step{font-size:13px;color:var(--cream-dim);margin-top:8px}
+
+/* swatches */
+.sw{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px;margin-top:12px}
+.sw div{border-radius:6px;padding:10px;min-height:88px;display:flex;flex-direction:column;justify-content:flex-end;font-family:var(--mono);font-size:11.5px;line-height:1.35;border:1px solid var(--line)}
+.sw b{font-family:var(--title);font-weight:600;font-size:13px;letter-spacing:.02em}
+
+/* type */
+.type div{display:grid;grid-template-columns:170px 1fr;gap:12px;align-items:baseline;padding-block:10px;border-bottom:1px solid var(--line)}
+.type small{color:var(--fg2);font-size:14px}
+@media (max-width:480px){.type div{grid-template-columns:1fr}}
+.dont{list-style:none;padding:0;display:grid;gap:8px;margin-top:10px}
+.dont li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:15.5px}
+.dont li::before{content:"✗";color:var(--accent);font-family:var(--title);font-weight:600}
+@media (prefers-reduced-motion: no-preference){.stamp{transition:transform .35s}.stamp:hover{transform:rotate(0)}}
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">House sheet · v1</div>
+    <h1>MoiVoyage, the house level</h1>
+    <p class="muted">The cover, the pages, the stamp, the palette and the type that every voyage shares. Everything inside a voyage belongs to its template and is not on this sheet. Values are quoted from BRAND.md and measured by scripts/contrast.mjs.</p>
+  </header>
+
+  <h2>The passport</h2>
+  <div class="two">
+    <div>
+      <div class="phone"><div class="screen cover">
+        <div class="stamp" style="width:132px;height:132px;color:var(--stamp-light)">
+          <svg viewBox="0 0 120 120" role="img" aria-label="The MoiVoyage stamp"><defs><path id="r1" d="M60,60 m-41,0 a41,41 0 1,1 82,0 a41,41 0 1,1 -82,0"/></defs><circle cx="60" cy="60" r="57" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="50" fill="none" stroke="currentColor" stroke-width="1"/><text font-family="Jost, sans-serif" font-size="9.5" font-weight="500" fill="currentColor" letter-spacing="2.2"><textPath href="#r1" textLength="257" lengthAdjust="spacing">MOI · VOYAGE · MOI · VOYAGE · </textPath></text><text x="60" y="70" text-anchor="middle" font-family="Jost, sans-serif" font-size="28" font-weight="600" fill="currentColor">MV</text></svg>
+        </div>
+        <div style="margin-top:26px" class="wordmark">Moi Voyage</div>
+        <p style="margin:18px 0 0;font-size:16px;line-height:1.45;max-width:24ch">This is your passport. Every voyage you make gets a page, a world of its own, and someone to look after the loose ends.</p>
+        <span class="cta">Make your first voyage</span>
+        <div class="making">
+          <div class="count">Making The Green Road</div>
+          <div class="bar"><i></i></div>
+          <div class="step">Drawing Edinburgh. Seven places, twenty-two days. About a minute.</div>
+        </div>
+      </div></div>
+      <p class="muted" style="text-align:center;margin-top:10px">The cover: welcome, and the making screen below it. Cover ink, cream text, the stamp in its light tint.</p>
+    </div>
+    <div>
+      <div class="phone"><div class="screen page">
+        <div class="wordmark" style="color:var(--ink)">Your passport</div>
+        <div class="count" style="margin-top:4px">Two voyages</div>
+        <div class="entry">
+          <div><div class="t">The Green Road</div><div class="d">Tue 6 – Tue 27 October 2026</div><div class="tpl">The Storybook</div><div class="need">Two things need you before the 6th.</div></div>
+          <div class="vstamp" style="color:#2F6B45"><span class="name">The Green Road</span><span class="dates">6 – 27 Oct 2026</span></div>
+        </div>
+        <div class="entry">
+          <div><div class="t">Daren's Last Ride</div><div class="d">Thu 13 – Sun 16 August 2026</div><div class="tpl">The Tour</div><div class="need">Stamped. Souvenir kept.</div></div>
+          <div class="vstamp" style="color:#E8A33D;transform:rotate(-3deg)"><span class="name">Last Ride</span><span class="dates">13 – 16 Aug 2026</span></div>
+        </div>
+        <span class="cta">Make a voyage</span>
+      </div></div>
+      <p class="muted" style="text-align:center;margin-top:10px">A page per voyage. Each stamp is pressed in its own template's accent, like inks from different countries.</p>
+    </div>
+  </div>
+
+  <h2>The stamp</h2>
+  <p>A double ring, the name running round it, the monogram in the middle, pressed at eight degrees. Red on light surfaces, the light tint on dark ones. The app icon is the only upright use.</p>
+  <div class="two">
+    <div class="spec page">
+      <div class="sizes">
+        <figure><div class="stamp" style="width:120px;height:120px;color:var(--stamp)"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="r2" d="M60,60 m-41,0 a41,41 0 1,1 82,0 a41,41 0 1,1 -82,0"/></defs><circle cx="60" cy="60" r="57" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="50" fill="none" stroke="currentColor" stroke-width="1"/><text font-family="Jost, sans-serif" font-size="9.5" font-weight="500" fill="currentColor" letter-spacing="2.2"><textPath href="#r2" textLength="257" lengthAdjust="spacing">MOI · VOYAGE · MOI · VOYAGE · </textPath></text><text x="60" y="70" text-anchor="middle" font-family="Jost, sans-serif" font-size="28" font-weight="600" fill="currentColor">MV</text></svg></div><figcaption>120px</figcaption></figure>
+        <figure><div class="stamp" style="width:48px;height:48px;color:var(--stamp)"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="r3" d="M60,60 m-41,0 a41,41 0 1,1 82,0 a41,41 0 1,1 -82,0"/></defs><circle cx="60" cy="60" r="57" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="50" fill="none" stroke="currentColor" stroke-width="1"/><text font-family="Jost, sans-serif" font-size="9.5" font-weight="500" fill="currentColor" letter-spacing="2.2"><textPath href="#r3" textLength="257" lengthAdjust="spacing">MOI · VOYAGE · MOI · VOYAGE · </textPath></text><text x="60" y="70" text-anchor="middle" font-family="Jost, sans-serif" font-size="28" font-weight="600" fill="currentColor">MV</text></svg></div><figcaption>48px, smallest with ring text</figcaption></figure>
+        <figure><div class="stamp" style="width:24px;height:24px;color:var(--stamp)"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" stroke-width="6"/><text x="60" y="72" text-anchor="middle" font-family="Jost, sans-serif" font-size="36" font-weight="600" fill="currentColor">MV</text></svg></div><figcaption>24px minimum</figcaption></figure>
+        <figure><div class="stamp" style="width:64px;height:64px;color:var(--ink)"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="r4" d="M60,60 m-41,0 a41,41 0 1,1 82,0 a41,41 0 1,1 -82,0"/></defs><circle cx="60" cy="60" r="57" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="50" fill="none" stroke="currentColor" stroke-width="1"/><text font-family="Jost, sans-serif" font-size="9.5" font-weight="500" fill="currentColor" letter-spacing="2.2"><textPath href="#r4" textLength="257" lengthAdjust="spacing">MOI · VOYAGE · MOI · VOYAGE · </textPath></text><text x="60" y="70" text-anchor="middle" font-family="Jost, sans-serif" font-size="28" font-weight="600" fill="currentColor">MV</text></svg></div><figcaption>single colour, ink</figcaption></figure>
+      </div>
+      <p class="mono" style="margin-top:18px">stamp #B8322F on field: 5.4:1</p>
+    </div>
+    <div class="spec cover">
+      <div class="sizes">
+        <figure><div class="stamp" style="width:120px;height:120px;color:var(--stamp-light)"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="r5" d="M60,60 m-41,0 a41,41 0 1,1 82,0 a41,41 0 1,1 -82,0"/></defs><circle cx="60" cy="60" r="57" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="50" fill="none" stroke="currentColor" stroke-width="1"/><text font-family="Jost, sans-serif" font-size="9.5" font-weight="500" fill="currentColor" letter-spacing="2.2"><textPath href="#r5" textLength="257" lengthAdjust="spacing">MOI · VOYAGE · MOI · VOYAGE · </textPath></text><text x="60" y="70" text-anchor="middle" font-family="Jost, sans-serif" font-size="28" font-weight="600" fill="currentColor">MV</text></svg></div><figcaption>on the cover</figcaption></figure>
+        <figure><div style="width:96px;height:96px;border-radius:22px;background:var(--cover);border:1px solid var(--cover-line);display:grid;place-items:center;color:var(--stamp-light)"><svg viewBox="0 0 120 120" width="64" height="64" aria-hidden="true"><defs><path id="r6" d="M60,60 m-41,0 a41,41 0 1,1 82,0 a41,41 0 1,1 -82,0"/></defs><circle cx="60" cy="60" r="57" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="50" fill="none" stroke="currentColor" stroke-width="1"/><text font-family="Jost, sans-serif" font-size="9.5" font-weight="500" fill="currentColor" letter-spacing="2.2"><textPath href="#r6" textLength="257" lengthAdjust="spacing">MOI · VOYAGE · MOI · VOYAGE · </textPath></text><text x="60" y="70" text-anchor="middle" font-family="Jost, sans-serif" font-size="28" font-weight="600" fill="currentColor">MV</text></svg></div><figcaption>app icon, upright</figcaption></figure>
+      </div>
+      <p class="mono" style="margin-top:18px;color:var(--cream-dim)">stamp-light #E8766E on cover: 5.4:1 · stamp red on cover would be 2.6:1, below the 3:1 a graphic needs</p>
+    </div>
+  </div>
+
+  <h3>The voyage stamp</h3>
+  <p>Each voyage is stamped in its template's accent, never in house red. Name in the hand, dates in Jost capitals, pressed between minus six and plus six degrees. It appears on the voyage's page and on the souvenir.</p>
+  <div class="spec page" style="display:flex;gap:32px;flex-wrap:wrap;align-items:center">
+    <div class="vstamp" style="color:#2F5A8A"><span class="name">The Green Road</span><span class="dates">6 – 27 Oct 2026 · Ch. I</span></div>
+    <div class="vstamp" style="color:#2F6B45;transform:rotate(3deg)"><span class="name">The Green Road</span><span class="dates">6 – 27 Oct 2026 · Ch. II</span></div>
+    <div class="vstamp" style="color:#E8A33D;transform:rotate(-2deg)"><span class="name">Daren's Last Ride</span><span class="dates">13 – 16 Aug 2026</span></div>
+  </div>
+
+  <h2>The wordmark</h2>
+  <div class="two">
+    <div class="spec page"><div class="wordmark">Moi Voyage</div><p class="muted" style="margin-top:10px">Jost 500, capitals, tracked 0.3em. Two words in the mark, one word in prose.</p></div>
+    <div class="spec cover"><div class="wordmark">Moi Voyage</div><p style="margin-top:10px;font-size:15px;color:var(--cream-dim)">Cream on the cover. Said <i>mwah vwa-YAHZH</i>. The wink in the grammar stays unexplained.</p></div>
+  </div>
+  <ul class="dont">
+    <li>Moi-Voyage, MoiVoyage.ai, or lower-case moivoyage as a brand name</li>
+    <li>A tagline attached to the wordmark with a dash or colon</li>
+    <li>The stamp with a fill, a gradient or a shadow behind the ring</li>
+    <li>The house stamp anywhere inside a voyage except the souvenir</li>
+    <li>Any French in the interface beyond the name</li>
+  </ul>
+
+  <h2>Colour</h2>
+  <h3>Pages</h3>
+  <div class="sw">
+    <div style="background:#F6F4EF;color:#1E2430"><b>field</b>#F6F4EF</div>
+    <div style="background:#ECE9E1;color:#1E2430"><b>raised</b>#ECE9E1</div>
+    <div style="background:#FFFEFB;color:#1E2430"><b>paper</b>#FFFEFB</div>
+    <div style="background:#1E2430;color:#F6F4EF"><b>ink</b>#1E2430</div>
+    <div style="background:#575C68;color:#F6F4EF"><b>inksoft</b>#575C68</div>
+    <div style="background:#6A645E;color:#F6F4EF"><b>pencil</b>#6A645E</div>
+    <div style="background:#B8322F;color:#F6F4EF"><b>stamp</b>#B8322F</div>
+    <div style="background:#D8D4CA;color:#1E2430"><b>line</b>#D8D4CA · decorative</div>
+  </div>
+  <h3>Cover</h3>
+  <div class="sw">
+    <div style="background:#1E2430;color:#F6F4EF"><b>cover</b>#1E2430</div>
+    <div style="background:#283040;color:#F6F4EF"><b>cover-raised</b>#283040</div>
+    <div style="background:#F6F4EF;color:#1E2430"><b>cream</b>#F6F4EF</div>
+    <div style="background:#B9BEC9;color:#1E2430"><b>cream-dim</b>#B9BEC9</div>
+    <div style="background:#E8766E;color:#1E2430"><b>stamp-light</b>#E8766E</div>
+    <div style="background:#3B4455;color:#F6F4EF"><b>cover-line</b>#3B4455 · decorative</div>
+  </div>
+  <h3>Measured contrast</h3>
+  <div class="tablewrap">
+  <table>
+    <tr><th>Text</th><th>on field</th><th>on raised</th><th>on paper</th><th></th><th>on cover</th><th>on cover-raised</th></tr>
+    <tr><td>ink</td><td>14.1</td><td>12.8</td><td>15.4</td><td>cream</td><td>14.1</td><td>12.0</td></tr>
+    <tr><td>inksoft</td><td>6.1</td><td>5.5</td><td>6.6</td><td>cream-dim</td><td>8.3</td><td>7.1</td></tr>
+    <tr><td>pencil</td><td>5.3</td><td>4.8</td><td>5.8</td><td></td><td></td><td></td></tr>
+    <tr><td>stamp</td><td>5.4</td><td>4.9</td><td>5.9</td><td>stamp-light</td><td>5.4</td><td>4.6</td></tr>
+  </table>
+  </div>
+  <p class="muted">Every text pairing clears 4.5:1. Lines are decorative and fail on purpose; a border that must be seen uses inksoft on pages and cream-dim on the cover.</p>
+
+  <h2>Type</h2>
+  <div class="type">
+    <div><span style="font-family:var(--title);font-weight:500;letter-spacing:.2em;text-transform:uppercase;font-size:20px">Jost capitals</span><small>Titles, buttons, tabs, the wordmark. 500 and 600, tracked .14 to .3em. The title-card voice.</small></div>
+    <div><span style="font-family:var(--fact);font-size:20px">Lora, for every fact</span><small>17px minimum, 20px for a letter. A date, a place, a price, a sentence. Nothing that is true is ever set in anything else.</small></div>
+    <div><span style="font-family:var(--hand);font-size:28px">Caveat, for the hand</span><small>24px and up. At house level, only the voyage's name on its stamp.</small></div>
+  </div>
+
+  <h2>The house voice, in situ</h2>
+  <div class="two">
+    <div class="spec cover">
+      <div class="count">Invite your companion</div>
+      <p style="font-size:18px;margin-top:8px">Travelling with someone? One link. Same page, same letters, same narrator.</p>
+      <span class="cta" style="display:inline-block;margin-top:14px;font-family:var(--title);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:11px 16px;border-radius:999px;background:var(--cream);color:var(--cover)">Copy the link</span>
+    </div>
+    <div class="spec page">
+      <div class="count" style="color:var(--inksoft)">Receipt</div>
+      <p style="font-size:18px;margin-top:8px">The Green Road. One voyage. Paid 2 October. That's everything; nothing recurs.</p>
+      <p class="muted" style="margin-top:10px">Second person, no exclamation marks, the number named. Under twenty words.</p>
+    </div>
+  </div>
+</div>

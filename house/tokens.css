@@ -1,0 +1,46 @@
+/* MoiVoyage — house tokens.
+   The house owns the passport cover and the house screens; a template owns
+   everything inside a voyage and brings its own tokens. Contrast for every
+   pairing below is measured by `node scripts/contrast.mjs` and quoted in
+   BRAND.md §6. Re-run it when a value changes.
+   Faces: Jost (titles, 500/600, capitals, tracked), Lora (facts, 17–20px),
+   Caveat (hand, 24px and up). Load them from Google Fonts or self-host. */
+
+
+:root {
+  /* Pages (light). The passport's pages and every house screen that is not the cover. */
+  --mv-field:        #F6F4EF;  /* ground */
+  --mv-raised:       #ECE9E1;  /* sheets, cards */
+  --mv-paper:        #FFFEFB;  /* a touchable surface */
+  --mv-ink:          #1E2430;  /* all primary text */
+  --mv-inksoft:      #575C68;  /* secondary text; any border that must be seen */
+  --mv-pencil:       #6A645E;  /* a maybe, a not-yet */
+  --mv-stamp:        #B8322F;  /* the mark on light; the one accent, once per screen */
+  --mv-line:         #D8D4CA;  /* decorative rules only; fails 3:1 on purpose */
+
+  /* Cover (dark). The passport cover, the welcome, the making screen, the app icon. */
+  --mv-cover:        #1E2430;
+  --mv-cover-raised: #283040;
+  --mv-cream:        #F6F4EF;  /* all primary text on the cover */
+  --mv-cream-dim:    #B9BEC9;  /* secondary text on the cover; borders that must be seen */
+  --mv-stamp-light:  #E8766E;  /* the mark on dark: the red ring measures 2.6:1 on the cover */
+  --mv-cover-line:   #3B4455;  /* decorative rules only */
+
+  /* Type */
+  --mv-face-title: "Jost", system-ui, sans-serif;
+  --mv-face-fact:  "Lora", Georgia, serif;
+  --mv-face-hand:  "Caveat", cursive;
+  --mv-track-title: 0.14em;    /* up to 0.3em on the wordmark */
+  --mv-size-fact:   18px;      /* 17 minimum, 20 for a letter */
+  --mv-size-hand:   24px;      /* minimum */
+
+  /* The stamp */
+  --mv-stamp-tilt:  -8deg;     /* on the cover and house screens; upright only in the app icon */
+  --mv-stamp-min:   24px;      /* ring and monogram only; ring text from 48px */
+}
+
+/* The cover inverts the page: state the text colour wherever you state a background. */
+.mv-cover { background: var(--mv-cover); color: var(--mv-cream); }
+.mv-cover .mv-stamp { color: var(--mv-stamp-light); }
+.mv-page  { background: var(--mv-field); color: var(--mv-ink); }
+.mv-page  .mv-stamp { color: var(--mv-stamp); }

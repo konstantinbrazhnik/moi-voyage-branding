@@ -1,13 +1,13 @@
 # MoiVoyage · the brand questions
 
-Nineteen questions in five groups. The six marked **decide first** are the ones
-the three directions fork on. Each question carries the assumption the draft
-directions were built on; answer by number, or correct the assumption.
+Nineteen questions in five groups. The six marked **decide first** were
+answered on 1–2 October 2026 and chose Direction A, the Atelier. The rest keep
+their working assumptions until corrected.
 
 ## A. Who it is for
 
 1. **Who is the first traveller MoiVoyage is built for?** *(decide first)*
-   Assumption: friends and friends-of-friends first, paying strangers in view.
+   **Answered:** the two of us, which is why the current app is designed as it is.
 2. **What shape of trip is the home case?**
    Assumption: leisure trips of three days to three weeks, two to twelve people.
 3. **How is it paid for, if at all?**
@@ -16,13 +16,13 @@ directions were built on; answer by number, or correct the assumption.
 ## B. What it is
 
 4. **Is MoiVoyage one brand, or a house that makes a world per trip?** *(decide first)*
-   Assumption: a house with a per-trip skin, recognised by its mark and manners.
+   **Answered:** a house that makes the world a trip is. Penguin's bird is the model.
 5. **Is the assistant the product, or a feature of it?** *(decide first)*
-   Assumption: the app is the product; the assistant is its most important
-   feature and has a name that may change per trip.
+   **Answered:** a feature. The visual app, like a passport, is the main
+   feature; the assistant makes it fluid and functional.
 6. **How much does it do without being asked?** *(decide first)*
-   Assumption: it notices and suggests; nothing is booked, moved or paid for
-   without a tap.
+   **Answered:** notice and suggest at first. Eventually act and report
+   (agentic commerce, procuring discounts).
 7. **What will it never do?**
    Assumption: never invents a fact, never pretends to have acted, never nags,
    never sells unasked.
@@ -30,8 +30,7 @@ directions were built on; answer by number, or correct the assumption.
 ## C. The voice
 
 8. **Does it say "I"?** *(decide first)*
-   Assumption: the house says "we" sparingly; inside a trip the named assistant
-   says "I".
+   **Answered:** yes.
 9. **Where is the dial between warm and witty?**
    Assumption: dry rather than jokey; amused, never sarcastic about the traveller.
 10. **Does it have taste?**
@@ -47,7 +46,12 @@ directions were built on; answer by number, or correct the assumption.
 ## D. The look
 
 13. **Physical-world metaphor, or digital-native?** *(decide first)*
-    Assumption: physical at the trip level; the house stays quieter.
+    **Answered:** the middle. The house is physical (a passport). Templates
+    carry a visual language that is extended per trip (new cities drawn in the
+    same style, assets reused); the house generates further templates, some
+    digital-native, and validates accessibility and every design detail before
+    one is offered. A fully bespoke template is the highest tier, and a
+    business such as a travel agency may build its own for group trips.
 14. **Illustration, photography, or neither?**
     Assumption: drawing is a signature of the house; every voyage gets at least
     one drawn thing.

@@ -1,0 +1,572 @@
+<title>MoiVoyage Network Mockups</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Caveat:wght@500&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+/* Layout: a review sheet. Each screen is a phone at 390px wide on the house field; the chrome between screens follows the viewer's theme. Photos are loud, chrome is quiet. */
+:root{
+  --bg:#F6F4EF;--fg:#1E2430;--fg2:#575C68;--line:#D8D4CA;--accent:#B8322F;
+  --field:#F6F4EF;--raised:#ECE9E1;--paper:#FFFEFB;--ink:#1E2430;--inksoft:#575C68;--pencil:#6A645E;--stamp:#B8322F;--rule:#D8D4CA;
+  --cover:#1E2430;--cream:#F6F4EF;--cream-dim:#B9BEC9;--stamp-light:#E8766E;--cover-line:#3B4455;
+  --seine:#2F5A8A;--grass:#2F6B45;--brass:#A8742A;--wine:#8E2438;--heather:#6B4C8A;
+  --title:"Jost",system-ui,sans-serif;--fact:"Lora",Georgia,serif;--hand:"Caveat",cursive;--mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#15181E;--fg:#EDEAE2;--fg2:#A9ADB6;--line:#343A45;--accent:#E8766E;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#15181E;--fg:#EDEAE2;--fg2:#A9ADB6;--line:#343A45;--accent:#E8766E;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--fact);font-size:17px;line-height:1.55;padding-inline:16px;padding-block:0 64px}
+.wrap{max-width:1040px;margin:0 auto}
+h1,h2,h3{font-family:var(--title);text-wrap:balance;line-height:1.15;margin:0;font-weight:500}
+h1{font-size:clamp(30px,5vw,46px)}
+h2{font-size:26px;margin-top:8px}
+h3{font-size:16px;font-weight:600;margin-top:18px}
+p{max-width:66ch}
+.muted{color:var(--fg2);font-size:15px}
+.eyebrow{font-family:var(--title);text-transform:uppercase;letter-spacing:.22em;font-size:12px;font-weight:600;color:var(--accent)}
+.hero{padding-block:48px 12px;display:grid;gap:12px}
+.lede{font-size:20px;line-height:1.45;max-width:62ch}
+ul{padding-left:20px}li{margin-block:5px;font-size:15.5px}
+.screen-sec{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px 40px;align-items:start}
+.screen-sec .notes{min-width:0}
+.screen-sec .phones{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+@media (max-width:900px){.screen-sec{grid-template-columns:1fr}}
+.cap{font-family:var(--title);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg2);text-align:center;margin-top:10px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin-top:10px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--title);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg2);font-weight:600}
+
+/* ---------- phone ---------- */
+.phone{width:390px;max-width:100%;border-radius:40px;padding:10px;background:#111;box-shadow:0 18px 50px rgba(0,0,0,.3);flex:none}
+.scr{border-radius:31px;overflow:hidden;background:var(--field);color:var(--ink);height:800px;position:relative;font-size:14px;line-height:1.4;display:flex;flex-direction:column}
+.scr.dark{background:var(--cover);color:var(--cream)}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 18px 8px;flex:none}
+.wm{font-family:var(--title);font-weight:500;letter-spacing:.3em;text-transform:uppercase;font-size:12px}
+.body{flex:1;overflow:hidden;position:relative}
+.pad{padding-inline:18px}
+.tabs{flex:none;display:flex;justify-content:space-around;padding:10px 8px 18px;background:var(--paper);border-top:1px solid var(--rule);font-family:var(--title);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--inksoft)}
+.tabs span.on{color:var(--ink);border-bottom:2px solid var(--stamp);padding-bottom:2px}
+.scr.dark .tabs{background:var(--cover);border-color:var(--cover-line);color:var(--cream-dim)}
+.scr.dark .tabs span.on{color:var(--cream);border-color:var(--stamp-light)}
+.t{font-family:var(--title);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:11px;color:var(--inksoft)}
+.scr.dark .t{color:var(--cream-dim)}
+.h{font-family:var(--title);font-weight:500;font-size:24px;line-height:1.1;letter-spacing:-.005em}
+.hand{font-family:var(--hand);font-size:24px;line-height:1.1}
+.fact{font-family:var(--fact);font-size:17px;line-height:1.35}
+.btn{display:inline-block;font-family:var(--title);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:10px 14px;border-radius:999px;background:var(--ink);color:var(--cream);white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--inksoft)}
+.btn.red{background:var(--stamp);color:var(--cream)}
+.scr.dark .btn{background:var(--cream);color:var(--cover)}
+.scr.dark .btn.ghost{background:transparent;color:var(--cream);border-color:var(--cream-dim)}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.chips{display:flex;gap:8px;overflow:hidden;padding-inline:18px;margin-top:10px}
+.chip{flex:none;font-family:var(--title);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:7px 11px;border-radius:999px;border:1px solid var(--inksoft);color:var(--ink);background:var(--paper)}
+.chip.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.search{margin:10px 18px 0;background:var(--paper);border:1px solid var(--inksoft);border-radius:12px;padding:11px 14px;font-family:var(--fact);font-size:15px;color:var(--ink);display:flex;justify-content:space-between;align-items:center}
+.search small{font-family:var(--title);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--inksoft)}
+
+/* curator stamp (avatar) */
+.cs{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;border:2px solid currentColor;font-family:var(--title);font-weight:600;font-size:10.5px;letter-spacing:.04em;transform:rotate(-6deg);background:var(--paper);flex:none}
+.cs.lg{width:72px;height:72px;font-size:22px;border-width:3px}
+.cs.sm{width:22px;height:22px;font-size:8px;border-width:1.5px}
+.cur{display:inline-flex;align-items:center;gap:7px;font-family:var(--title);font-size:12px;font-weight:600;color:var(--ink)}
+.scr.dark .cur{color:var(--cream)}
+.scr.dark .cs{background:transparent}
+.avs{display:inline-flex}.avs .cs{margin-left:-6px;transform:none}
+
+/* photo tiles */
+.ph{position:relative;overflow:hidden;background:var(--raised);border-radius:10px}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph.fill{border-radius:0}
+.ph .ov{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;background:linear-gradient(transparent,rgba(20,24,32,.78));color:#F6F4EF}
+.ph .ov .n{font-family:var(--title);font-weight:600;font-size:13px;letter-spacing:.02em;line-height:1.2}
+.ph .ov .c{font-family:var(--title);font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.9}
+.ph .ov .cur{color:#F6F4EF;margin-bottom:6px}.ph .ov .cs{background:transparent}
+.food{position:absolute;inset:0;display:flex;align-items:flex-end;padding:10px 12px;color:#F6F4EF}
+.food::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 2px,transparent 2px 5px)}
+.food span{font-family:var(--title);font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.85;position:relative}
+.f1{background:radial-gradient(circle at 30% 30%,#C97B4A,#6E2A2A 70%)}
+.f2{background:radial-gradient(circle at 70% 40%,#E8C77A,#8E5A1E 70%)}
+.f3{background:radial-gradient(circle at 40% 60%,#9EB8A2,#2F4A3A 72%)}
+.f4{background:radial-gradient(circle at 60% 30%,#C9A8B8,#5A2A3A 70%)}
+.f5{background:radial-gradient(circle at 50% 50%,#E0CFA8,#7A4A2A 72%)}
+.f6{background:radial-gradient(circle at 30% 70%,#B0C4D8,#2F3F5A 72%)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-inline:18px;margin-top:10px}
+.grid2 .ph{aspect-ratio:4/5}
+.grid2 .ph.tall{aspect-ratio:3/4}
+.strip{display:flex;gap:8px;padding-inline:18px;margin-top:8px;overflow:hidden}
+.strip .ph{flex:none;width:150px;aspect-ratio:4/5}
+.list{padding-inline:18px}
+.item{display:grid;grid-template-columns:72px 1fr;gap:12px;padding-block:12px;border-bottom:1px solid var(--rule)}
+.item .ph{width:72px;height:72px}
+.item .n{font-family:var(--title);font-weight:600;font-size:15px;line-height:1.15}
+.item .m{font-size:13px;color:var(--inksoft)}
+.item .hand{font-size:24px;margin-top:2px;line-height:1}
+.stamped{font-family:var(--title);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--inksoft);display:flex;align-items:center;gap:6px;margin-top:3px}
+.sec{display:flex;justify-content:space-between;align-items:baseline;padding:14px 18px 2px}
+.sec a{font-family:var(--title);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--stamp);text-decoration:none}
+.paper{background:var(--paper);border:1px solid var(--rule);border-radius:12px;padding:12px 14px;margin:10px 18px 0}
+.note{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;padding-block:9px;border-bottom:1px solid var(--rule)}
+.note:last-child{border-bottom:0}
+.note .who{font-family:var(--title);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--inksoft)}
+.note .hand{font-size:24px;line-height:1.05;margin-top:2px}
+.kv{display:grid;grid-template-columns:90px 1fr;gap:4px 10px;font-size:14px;padding:4px 18px}
+.kv b{font-family:var(--title);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--inksoft);font-weight:600;padding-top:3px}
+.ctabar{position:absolute;left:0;right:0;bottom:0;padding:10px 18px 12px;background:linear-gradient(transparent,var(--field) 30%);display:flex;gap:8px}
+.ctabar .btn{flex:1;text-align:center}
+.pill{font-family:var(--title);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:var(--raised);color:var(--inksoft)}
+.scr.dark .pill{background:var(--cover-line);color:var(--cream)}
+
+/* moments (dark) */
+.mo{position:absolute;inset:0}
+.mo img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block}
+.mo .shade{position:absolute;inset:0;background:linear-gradient(rgba(30,36,48,.55),transparent 28%,transparent 55%,rgba(30,36,48,.9))}
+.mo .topl{position:absolute;top:18px;left:18px;right:18px;display:flex;justify-content:space-between;align-items:center;color:var(--cream)}
+.mo .text{position:absolute;left:18px;right:80px;bottom:112px;color:var(--cream)}
+.mo .text .c{font-family:var(--title);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim)}
+.mo .text .h{font-size:30px;margin-top:4px}
+.mo .text .hand{font-size:26px;margin-top:8px;color:var(--cream)}
+.mo .acts{position:absolute;right:16px;bottom:118px;display:grid;gap:14px;justify-items:center;color:var(--cream);font-family:var(--title);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase}
+.mo .acts i{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--cream);font-style:normal;font-size:16px;margin-bottom:3px}
+.mo .acts i.st{border-color:var(--stamp-light);color:var(--stamp-light);font-family:var(--title);font-weight:600;font-size:12px;transform:rotate(-8deg)}
+.mo .dots{position:absolute;right:20px;top:50%;transform:translateY(-50%);display:grid;gap:6px}
+.mo .dots i{width:4px;height:14px;border-radius:2px;background:rgba(246,244,239,.4)}.mo .dots i.on{background:var(--cream)}
+
+/* curator page */
+.cover-ph{height:150px;position:relative}
+.cover-ph img{width:100%;height:100%;object-fit:cover;display:block}
+.profile{display:grid;grid-template-columns:72px 1fr;gap:12px;align-items:end;padding:0 18px;margin-top:-30px;position:relative}
+.profile .cs.lg{background:var(--paper)}
+.subtabs{display:flex;gap:18px;padding:10px 18px 0;font-family:var(--title);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--inksoft);border-bottom:1px solid var(--rule)}
+.subtabs span{padding-bottom:8px}.subtabs span.on{color:var(--ink);border-bottom:2px solid var(--stamp)}
+.letter{margin:10px 18px 0;background:var(--paper);border:1px solid var(--rule);border-radius:12px;padding:12px 14px;background-image:repeating-linear-gradient(transparent 0 27px,#E3E8F0 27px 28px);background-position:0 36px}
+.letter .fact{font-size:16px}
+.vstamp{display:inline-grid;place-items:center;text-align:center;border:2px solid currentColor;border-radius:8px;padding:6px 10px;line-height:1.1;transform:rotate(-4deg)}
+.vstamp .name{font-family:var(--hand);font-size:24px}
+.vstamp .dates{font-family:var(--title);font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-top:3px}
+
+/* day cards (story) */
+.day{margin:10px 18px 0;background:var(--paper);border:1px solid var(--rule);border-radius:12px;overflow:hidden}
+.day .ph{border-radius:0;height:110px}
+.day .in{padding:10px 14px 12px}
+.day .stop{display:grid;grid-template-columns:44px 1fr;gap:8px;padding-block:5px;font-size:14px}
+.day .stop small{font-family:var(--mono);font-size:11px;color:var(--inksoft);padding-top:2px}
+.day .stop .maybe{color:var(--pencil);font-style:italic}
+
+/* map */
+.map{margin:10px 18px 0;height:170px;border-radius:12px;overflow:hidden;background:#E9EBE4;position:relative;border:1px solid var(--rule)}
+.map svg{width:100%;height:100%;display:block}
+.pin{position:absolute;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--paper);border:2px solid var(--stamp);color:var(--stamp);font-family:var(--title);font-weight:600;font-size:10px;transform:rotate(-8deg)}
+.pin.g{border-color:var(--grass);color:var(--grass)}.pin.b{border-color:var(--seine);color:var(--seine)}.pin.br{border-color:var(--brass);color:var(--brass)}
+
+/* desktop frame */
+.browser{width:100%;max-width:1000px;margin:16px auto 0;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--field);color:var(--ink);box-shadow:0 18px 50px rgba(0,0,0,.18)}
+.browser .bar{background:var(--raised);padding:10px 14px;display:flex;gap:6px;align-items:center;border-bottom:1px solid var(--rule)}
+.browser .bar i{width:10px;height:10px;border-radius:50%;background:var(--rule);display:block}
+.browser .bar span{margin-left:12px;font-family:var(--mono);font-size:12px;color:var(--inksoft)}
+.dnav{display:flex;justify-content:space-between;align-items:center;padding:16px 28px;border-bottom:1px solid var(--rule)}
+.dnav .links{display:flex;gap:22px;font-family:var(--title);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--inksoft)}
+.dnav .links b{color:var(--ink);font-weight:600}
+.dhero{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;padding:28px 28px 8px;align-items:end}
+.dhero .h{font-size:40px}
+.dmas{columns:4;column-gap:10px;padding:18px 28px 28px}
+.dmas .ph{break-inside:avoid;margin-bottom:10px}
+@media (max-width:760px){.dmas{columns:2}.dhero{grid-template-columns:1fr}}
+.dside{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:0 28px 14px}
+.cred{font-size:13px;color:var(--fg2);margin-top:40px;padding-top:16px;border-top:1px solid var(--line)}
+.cred a{color:var(--fg2)}
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">Network mockups · v1</div>
+    <h1>MoiVoyage as a network of curators</h1>
+    <p class="lede">The public face of the house. Curators share the places and moments they love, in their own voice, on a journal of their own. Travellers follow the curators whose taste they trust, find the places those curators have stamped, and, when a curator sells a voyage, buy a page in their passport. No venue pays for a stamp. Curators are the clients.</p>
+    <p class="muted">Nine screens, mobile first, with the home page at desktop width as well. The photographs of places are the licensed ones from The Green Road, credited at the bottom. Tiles marked "photo" stand in for a curator's own photographs of food and rooms, which the mockup does not have. Names of places and dishes are examples.</p>
+  </header>
+
+  <h2 style="margin-top:36px">What the brand does here</h2>
+  <ul>
+    <li><b>The stamp becomes the network's verb.</b> A curator stamps a place. A traveller stamps a place to keep it. A place's standing is how many curators have stamped it and which ones. The house stamp, the voyage stamp and now the curator's stamp are one family: a ring, a monogram, a tilt, an ink of its own.</li>
+    <li><b>Every curator has an ink.</b> A curator's stamp is pressed in their own accent (Seine blue, grass green, brass, wine, heather), chosen once. On a photo it is the only chrome. In a list it is how you recognise whose taste you are looking at before reading a name.</li>
+    <li><b>Photos are loud, chrome is quiet.</b> The house palette stays: field, ink, one red. Everything with colour in it is a photograph or a stamp.</li>
+    <li><b>The house never speaks in the first person.</b> Curators do, in the hand, at 24px and up, one line at a time. Facts (address, hours, price, dates) stay in Lora, on the grid, legible.</li>
+    <li><b>The passport is still the product.</b> A traveller's passport holds the places they stamped and the voyages they bought. A curator's package is a voyage with pages for sale, and buying one puts a page in your passport. That is how the network pays for itself.</li>
+  </ul>
+
+  <!-- ========== 01 HOME, LOGGED OUT ========== -->
+  <section class="screen-sec">
+    <div class="notes">
+      <div class="eyebrow">01 · Home, signed out</div>
+      <h2>Latest from the curators</h2>
+      <p>The first screen a stranger sees. No marketing hero, no feature list: the latest stamps, as photographs, with the curator's stamp on each one. The thesis is the content.</p>
+      <ul>
+        <li>Two-column masonry of moments: a photo, the curator, the place, the city. Tap a tile for the moment, tap the stamp for the curator.</li>
+        <li>One line of house voice at the top and one button. The rest is theirs.</li>
+        <li>"Latest" is chronological and public. Nothing is ranked for a stranger, because nothing is known about them yet.</li>
+      </ul>
+    </div>
+    <div class="phones">
+      <div>
+        <div class="phone"><div class="scr">
+          <div class="top"><span class="wm">Moi Voyage</span><span class="btn ghost" style="padding:7px 12px">Sign in</span></div>
+          <div class="body">
+            <div class="pad" style="margin-top:6px"><div class="h">Places loved by people with taste.</div><div class="muted" style="font-size:13.5px;margin-top:4px;color:var(--inksoft)">Stamped this week by 41 curators. Nobody paid for a stamp.</div></div>
+            <div class="grid2">
+              <div class="ph tall"><img src="photos/edinburgh.webp" alt="Edinburgh Castle from Princes Street Gardens"><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#A9DCC9">KK</span>Katherine &amp; Konstantin</span><div class="n">The Gardens at dusk</div><div class="c">Edinburgh</div></div></div>
+              <div class="ph"><div class="food f1"><span>photo · the lamb, Thistle Street</span></div><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#E8A33D">RM</span>Rosa M.</span><div class="n">Thistle Street Bar</div><div class="c">Edinburgh · dinner</div></div></div>
+              <div class="ph"><img src="photos/paris.webp" alt="Eiffel Tower from Pont Alexandre III"><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#A9C8E8">JL</span>Jules L.</span><div class="n">Pont Alexandre III, 7am</div><div class="c">Paris</div></div></div>
+              <div class="ph tall"><img src="photos/dublin.webp" alt="Ha'penny Bridge over the Liffey"><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#F2B8C6">AO</span>Aoife O.</span><div class="n">Ha'penny, before the crowds</div><div class="c">Dublin</div></div></div>
+              <div class="ph"><div class="food f2"><span>photo · the custard tart, Gloria's</span></div><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#F6DE9A">TN</span>Theo N.</span><div class="n">Gloria's</div><div class="c">St. Louis · bakery</div></div></div>
+              <div class="ph"><img src="photos/york.webp" alt="York Minster"><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#A9DCC9">KK</span>Katherine &amp; Konstantin</span><div class="n">Why we go to York first</div><div class="c">York · letter</div></div></div>
+            </div>
+          </div>
+          <div class="tabs"><span class="on">Latest</span><span>Places</span><span>Curators</span><span>Ask</span><span>Passport</span></div>
+        </div></div>
+        <div class="cap">Signed out · Latest</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 HOME, SIGNED IN ========== -->
+  <section class="screen-sec">
+    <div class="notes">
+      <div class="eyebrow">02 · Home, signed in</div>
+      <h2>For you</h2>
+      <p>The same screen once the house knows who you follow and where you are. The ranking is explainable in one line under each block: from curators you follow, near you, new this week.</p>
+      <ul>
+        <li>"From curators you follow" comes first and is horizontal, so the feed reads as people, not posts.</li>
+        <li>"Near you" is the directory, pre-filtered: the three places in St. Louis your curators stamped most recently, with their one line.</li>
+        <li>"Curators to follow" is based on overlap in stamps, and says so. Never on advertising.</li>
+        <li>A traveller with a voyage coming up sees its page here too, at the top, with the next thing that needs them.</li>
+      </ul>
+    </div>
+    <div class="phones">
+      <div>
+        <div class="phone"><div class="scr">
+          <div class="top"><span class="wm">Moi Voyage</span><span class="cs" style="color:var(--heather)">SB</span></div>
+          <div class="body">
+            <div class="pad"><div class="t">For you · St. Louis</div><div class="h" style="margin-top:2px">Three new stamps from people you follow.</div></div>
+            <div class="sec"><span class="t">From curators you follow</span><a>All 12</a></div>
+            <div class="strip">
+              <div class="ph"><img src="photos/glasgow.webp" alt="University of Glasgow tower"><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#A9DCC9">KK</span>K &amp; K</span><div class="n">Kelvingrove in the rain</div><div class="c">Glasgow</div></div></div>
+              <div class="ph"><div class="food f3"><span>photo · oysters, The Lobster Shack</span></div><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#F2B8C6">AO</span>Aoife O.</span><div class="n">The Lobster Shack</div><div class="c">Howth · lunch</div></div></div>
+              <div class="ph"><img src="photos/kilkea.webp" alt="Kilkea Castle"><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#A9DCC9">KK</span>K &amp; K</span><div class="n">Kilkea, the long table</div><div class="c">Kildare</div></div></div>
+            </div>
+            <div class="sec"><span class="t">Near you · St. Louis</span><a>Places</a></div>
+            <div class="list">
+              <div class="item"><div class="ph"><div class="food f4"><span>photo</span></div></div><div><div class="n">Olive &amp; Oak</div><div class="m">Webster Groves · dinner · $$$</div><div class="hand">date night, the corner booth</div><div class="stamped"><span class="avs"><span class="cs sm" style="color:var(--brass)">TN</span><span class="cs sm" style="color:var(--heather)">MJ</span></span>stamped by 9 · 2 you follow</div></div></div>
+              <div class="item"><div class="ph"><div class="food f5"><span>photo</span></div></div><div><div class="n">Sidney Street Café</div><div class="m">Benton Park · dinner · $$$</div><div class="hand">graduation dinner for six</div><div class="stamped"><span class="avs"><span class="cs sm" style="color:var(--brass)">TN</span></span>stamped by 6 · 1 you follow</div></div></div>
+            </div>
+            <div class="sec"><span class="t">Curators to follow</span><a>Why these</a></div>
+            <div class="strip" style="margin-top:4px">
+              <div class="paper" style="margin:0;flex:none;width:170px;display:grid;gap:6px"><span class="cur"><span class="cs" style="color:var(--wine)">PB</span>Priya B.</span><div class="m" style="font-size:12.5px;color:var(--inksoft)">Lisbon, Porto · 88 stamps. 14 places in common with you.</div><span class="btn ghost" style="padding:6px 10px;justify-self:start">Follow</span></div>
+              <div class="paper" style="margin:0;flex:none;width:170px;display:grid;gap:6px"><span class="cur"><span class="cs" style="color:var(--seine)">JL</span>Jules L.</span><div class="m" style="font-size:12.5px;color:var(--inksoft)">Paris · 140 stamps. Followed by 3 people you follow.</div><span class="btn ghost" style="padding:6px 10px;justify-self:start">Follow</span></div>
+            </div>
+          </div>
+          <div class="tabs"><span class="on">For you</span><span>Places</span><span>Curators</span><span>Ask</span><span>Passport</span></div>
+        </div></div>
+        <div class="cap">Signed in · For you</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 03 MOMENTS ========== -->
+  <section class="screen-sec">
+    <div class="notes">
+      <div class="eyebrow">03 · A moment</div>
+      <h2>Full screen, one place, one line</h2>
+      <p>Tap any tile and the feed becomes vertical: one photograph per screen, swipe up for the next. This is the TikTok pace the brief asks for, without the noise. The curator gets one handwritten line. The house gets the facts in a small label.</p>
+      <ul>
+        <li>The only colour on the screen besides the photograph is the curator's stamp.</li>
+        <li>Three actions: stamp it (keep it in your passport), go (directions), and the curator's journal. No comments on a moment; comments live on letters, where there is room to be thoughtful.</li>
+        <li>The curator's line is in the hand at 26px. The place and city are in Jost. Nothing a traveller needs is only in the photo.</li>
+      </ul>
+    </div>
+    <div class="phones">
+      <div>
+        <div class="phone"><div class="scr dark">
+          <div class="mo">
+            <img src="photos/kilkea.webp" alt="Kilkea Castle on its lawn">
+            <div class="shade"></div>
+            <div class="topl"><span class="cur"><span class="cs" style="color:#A9DCC9">KK</span>Katherine &amp; Konstantin</span><span class="pill">Kildare</span></div>
+            <div class="dots"><i></i><i class="on"></i><i></i><i></i><i></i></div>
+            <div class="text"><div class="c">Kilkea Castle · stay</div><div class="h">The long table in the old kitchen</div><div class="hand">ask for it; they'll say no twice and then light the fire.</div></div>
+            <div class="acts"><div><i class="st">MV</i>Stamp</div><div><i>→</i>Go</div><div><i>✎</i>Journal</div></div>
+          </div>
+          <div class="tabs" style="position:absolute;left:0;right:0;bottom:0"><span>For you</span><span>Places</span><span>Curators</span><span>Ask</span><span>Passport</span></div>
+        </div></div>
+        <div class="cap">A moment · swipe up for the next</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 04 DIRECTORY ========== -->
+  <section class="screen-sec">
+    <div class="notes">
+      <div class="eyebrow">04 · Places</div>
+      <h2>The directory</h2>
+      <p>Yelp's job with the opposite ranking. A place rises by who has stamped it, not by how many strangers rated it. Filters are occasions, not categories, because that is how people actually ask: date night, graduation dinner, family dinner, somewhere with a fire.</p>
+      <ul>
+        <li>The map is small and the list is the point. Pins are curator stamps; a place stamped by someone you follow shows that curator's ink.</li>
+        <li>Each row shows the one line from the curator you follow who stamped it most recently. If none of your curators have, it shows the most-stamped curator's line.</li>
+        <li>Default sort for a signed-in traveller: loved by people you follow. For a stranger: most stamped this year.</li>
+        <li>Under every list, in small type: "Nobody pays to be here." It is the product's promise and it is worth a line of screen.</li>
+      </ul>
+    </div>
+    <div class="phones">
+      <div>
+        <div class="phone"><div class="scr">
+          <div class="top"><span class="wm">Places</span><span class="cs" style="color:var(--heather)">SB</span></div>
+          <div class="body">
+            <div class="search"><span>Date night, St. Louis</span><small>Change</small></div>
+            <div class="chips"><span class="chip on">Date night</span><span class="chip">Graduation</span><span class="chip">Family</span><span class="chip">Natural wine</span><span class="chip">A fire</span><span class="chip">Open now</span></div>
+            <div class="map">
+              <svg viewBox="0 0 354 170" aria-hidden="true"><path d="M0,120 C60,100 120,140 200,110 S300,80 354,100 L354,170 L0,170Z" fill="#D7E0EA"/><path d="M0,40 H354 M0,85 H354 M60,0 V170 M150,0 V170 M240,0 V170 M300,0 V170" stroke="#FFFFFF" stroke-width="5" fill="none"/><path d="M0,62 H354 M105,0 V170 M195,0 V170" stroke="#FFFFFF" stroke-width="2.5" fill="none"/></svg>
+              <span class="pin br" style="left:118px;top:48px">TN</span><span class="pin" style="left:214px;top:70px">9</span><span class="pin g" style="left:72px;top:98px">KK</span><span class="pin b" style="left:270px;top:36px">6</span>
+            </div>
+            <div class="sec"><span class="t">Loved by people you follow</span><a>Sort</a></div>
+            <div class="list">
+              <div class="item"><div class="ph"><div class="food f4"><span>photo</span></div></div><div><div class="n">Olive &amp; Oak</div><div class="m">Webster Groves · $$$ · 1.2 mi</div><div class="hand">the corner booth, order the trout</div><div class="stamped"><span class="avs"><span class="cs sm" style="color:var(--brass)">TN</span><span class="cs sm" style="color:var(--heather)">MJ</span><span class="cs sm" style="color:var(--grass)">KK</span></span>stamped by 9 · 3 you follow</div></div></div>
+              <div class="item"><div class="ph"><div class="food f1"><span>photo</span></div></div><div><div class="n">Vicia</div><div class="m">Cortex · $$$$ · 2.4 mi</div><div class="hand">sit at the counter and let them choose</div><div class="stamped"><span class="avs"><span class="cs sm" style="color:var(--grass)">KK</span></span>stamped by 14 · 1 you follow</div></div></div>
+              <div class="item"><div class="ph"><div class="food f6"><span>photo</span></div></div><div><div class="n">The Royale</div><div class="m">Tower Grove South · $$ · 0.8 mi</div><div class="hand">the back patio in October</div><div class="stamped"><span class="avs"><span class="cs sm" style="color:var(--brass)">TN</span></span>stamped by 6 · 1 you follow</div></div></div>
+            </div>
+            <div class="pad" style="margin-top:8px;font-family:var(--title);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--inksoft)">Nobody pays to be here.</div>
+          </div>
+          <div class="tabs"><span>For you</span><span class="on">Places</span><span>Curators</span><span>Ask</span><span>Passport</span></div>
+        </div></div>
+        <div class="cap">Places · date night, St. Louis</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 05 PLACE ========== -->
+  <section class="screen-sec">
+    <div class="notes">
+      <div class="eyebrow">05 · A place</div>
+      <h2>Who stamped it, and why</h2>
+      <p>A place page is not a review page. It is a list of the people who love it and one line from each. The order to get. The facts. Two buttons.</p>
+      <ul>
+        <li>"Why" is the heart: each curator's line in their hand, their stamp in their ink. No star ratings anywhere on the network.</li>
+        <li>"The order" is what curators say to get, collected across stamps. Three items, no more.</li>
+        <li>Facts in Lora: address, hours, price band, booking. Booking is a plain link until the narrator can act, and then it becomes "Hold a table" inside a voyage.</li>
+        <li>"Add to a voyage" is the bridge to the passport: it pencils the place into a voyage you own.</li>
+      </ul>
+    </div>
+    <div class="phones">
+      <div>
+        <div class="phone"><div class="scr">
+          <div class="body" style="overflow:hidden">
+            <div class="ph fill" style="height:210px"><img src="photos/edinburgh.webp" alt="Edinburgh Castle from the gardens" style="object-position:center 60%"><div class="ov" style="padding-bottom:14px"><div class="c">Edinburgh · dinner · £££</div><div class="n" style="font-size:24px;font-family:var(--title);font-weight:500">Thistle Street Bar</div></div></div>
+            <div class="pad" style="margin-top:10px"><div class="stamped" style="font-size:12px"><span class="avs"><span class="cs sm" style="color:var(--grass)">KK</span><span class="cs sm" style="color:var(--brass)">RM</span><span class="cs sm" style="color:var(--seine)">JL</span></span>stamped by 14 curators · 3 you follow</div></div>
+            <div class="sec"><span class="t">Why</span></div>
+            <div class="paper" style="margin-top:4px">
+              <div class="note"><span class="cs" style="color:var(--grass)">KK</span><div><div class="who">Katherine &amp; Konstantin</div><div class="hand">a fire and a short wine list. go on a Tuesday.</div></div></div>
+              <div class="note"><span class="cs" style="color:var(--brass)">RM</span><div><div class="who">Rosa M.</div><div class="hand">the lamb. nothing else matters.</div></div></div>
+              <div class="note"><span class="cs" style="color:var(--seine)">JL</span><div><div class="who">Jules L.</div><div class="hand">the best back room in the city.</div></div></div>
+            </div>
+            <div class="sec"><span class="t">The order</span></div>
+            <div class="pad fact" style="font-size:15px">Lamb shoulder for two · the smoked trout · whatever is open by the glass</div>
+            <div class="sec"><span class="t">Facts</span></div>
+            <div class="kv"><b>Where</b><span>24 Thistle Street, New Town</span><b>Hours</b><span>Tue–Sat 5–11pm</span><b>Book</b><span>By phone, a week ahead</span></div>
+          </div>
+          <div class="ctabar"><span class="btn red">Stamp it</span><span class="btn ghost">Add to a voyage</span></div>
+        </div></div>
+        <div class="cap">A place · Thistle Street Bar</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 06 CURATOR ========== -->
+  <section class="screen-sec">
+    <div class="notes">
+      <div class="eyebrow">06 · A curator</div>
+      <h2>The journal</h2>
+      <p>A curator's page is their journal, the way a Substack writer has a publication. It holds four things: moments (photos), places (their stamps), letters (longer pieces), and packages (voyages they sell). Following is free. Supporting is paid, and unlocks letters and asking them directly.</p>
+      <ul>
+        <li>The stamp is the identity: their initials, their ink, pressed large under the cover photo. It is the same stamp that appears on every place they love.</li>
+        <li>The header states what they are good for in facts: cities, stamps, followers. The bio is one line in their own voice.</li>
+        <li>Letters render as letter paper, carrying The Green Road's ruled sheet into the network. Reading time and a first paragraph; the rest is for supporters when the curator chooses.</li>
+        <li>Packages show pages left, because a voyage has a fixed number of travellers.</li>
+      </ul>
+    </div>
+    <div class="phones">
+      <div>
+        <div class="phone"><div class="scr">
+          <div class="body">
+            <div class="cover-ph"><img src="photos/glasgow.webp" alt="University of Glasgow tower from Kelvingrove Park"></div>
+            <div class="profile"><span class="cs lg" style="color:var(--grass)">KK</span><div><div class="h" style="font-size:22px">Katherine &amp; Konstantin</div><div class="m" style="font-size:12.5px;color:var(--inksoft)">St. Louis · 212 stamps · 14 cities · 1,840 following</div></div></div>
+            <div class="pad hand" style="margin-top:10px;font-size:24px">we go for the fire, the wine list and the walk home.</div>
+            <div class="pad row" style="margin-top:10px"><span class="btn">Following</span><span class="btn ghost">Support · $6/mo</span><span class="btn ghost">Ask</span></div>
+            <div class="subtabs"><span>Moments</span><span class="on">Places</span><span>Letters</span><span>Packages</span></div>
+            <div class="list">
+              <div class="item"><div class="ph"><img src="photos/york.webp" alt="York Minster"></div><div><div class="n">Betty's, the Stonegate one</div><div class="m">York · tea</div><div class="hand">upstairs, by the window, the fat rascal</div></div></div>
+              <div class="item"><div class="ph"><div class="food f2"><span>photo</span></div></div><div><div class="n">Gloria's</div><div class="m">St. Louis · bakery</div><div class="hand">the custard tart before 9am</div></div></div>
+            </div>
+            <div class="letter"><div class="t" style="margin-bottom:4px">Letter No. 12 · 6 min</div><div class="h" style="font-size:19px">Why we always go to York first</div><div class="fact" style="margin-top:6px">Everyone lands in London. We get on the train. York is where the trip starts being ours, and this is the walk we do before anything else.</div><div class="t" style="margin-top:8px;color:var(--stamp)">Read · supporters</div></div>
+          </div>
+          <div class="tabs"><span>For you</span><span>Places</span><span class="on">Curators</span><span>Ask</span><span>Passport</span></div>
+        </div></div>
+        <div class="cap">A curator · Katherine &amp; Konstantin</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 07 STORY / ITINERARY ========== -->
+  <section class="screen-sec">
+    <div class="notes">
+      <div class="eyebrow">07 · An itinerary</div>
+      <h2>A story you can turn into a voyage</h2>
+      <p>A curator's itinerary is a story told in days, each with a photo strip and a few stops. It is the long form between a moment and a package. At the bottom, one button makes it yours: the house copies the stops into a new voyage, pencilled, in the template of your choice.</p>
+      <ul>
+        <li>Every stop is a stamped place, so the story is also a list of stamps. "Nine stamps in this story" at the top.</li>
+        <li>Ink and pencil carry over: a curator's fixed recommendation is a solid line, a "maybe, if it rains" is a pencil line, and that is what the voyage inherits.</li>
+        <li>"Make this my voyage" is the moment a traveller becomes a passport holder. It is red because it is the one thing on the screen that costs something.</li>
+      </ul>
+    </div>
+    <div class="phones">
+      <div>
+        <div class="phone"><div class="scr">
+          <div class="top"><span class="cur"><span class="cs" style="color:var(--grass)">KK</span>Katherine &amp; Konstantin</span><span class="pill">9 stamps</span></div>
+          <div class="body">
+            <div class="pad"><div class="t">Itinerary · 3 days</div><div class="h">Edinburgh, slowly</div><div class="fact" style="margin-top:6px;font-size:15px">Two nights, the Old Town on foot, one long dinner and one wet afternoon planned for.</div></div>
+            <div class="day"><div class="ph"><img src="photos/edinburgh.webp" alt="Edinburgh Castle" style="object-position:center 55%"></div><div class="in"><div class="t">Day 1 · Wednesday</div>
+              <div class="stop"><small>12:10</small><div>Waverley. Bags to the hotel, then up the Scotsman Steps.</div></div>
+              <div class="stop"><small>15:00</small><div>The Gardens, the long way round.</div></div>
+              <div class="stop"><small>eve.</small><div>Thistle Street Bar. The lamb, a Tuesday if you can.</div></div>
+              <div class="stop"><small>wet?</small><div class="maybe">The Portrait Gallery instead of the Gardens.</div></div>
+            </div></div>
+            <div class="day"><div class="ph"><div class="food f3" style="position:relative;height:110px"><span>photo · the counter at Noto</span></div></div><div class="in"><div class="t">Day 2 · Thursday</div>
+              <div class="stop"><small>10:00</small><div>Stockbridge market, then the Water of Leith to Dean Village.</div></div>
+              <div class="stop"><small>eve.</small><div>Noto, the counter. Let them choose.</div></div>
+            </div></div>
+          </div>
+          <div class="ctabar"><span class="btn red">Make this my voyage</span><span class="btn ghost">Stamp all 9</span></div>
+        </div></div>
+        <div class="cap">An itinerary · Edinburgh, slowly</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 PACKAGE ========== -->
+  <section class="screen-sec">
+    <div class="notes">
+      <div class="eyebrow">08 · A package</div>
+      <h2>A voyage with pages for sale</h2>
+      <p>This is where the network pays. A curator sells a voyage: dates, places, a template, their narrator, some dinners already held, and a fixed number of pages. Buying one puts the page in your passport, in the curator's world, with the curator's stamp on it.</p>
+      <ul>
+        <li>The price is stated once, plainly, with what it includes. The house takes its share and says so in the receipt; the curator is the seller.</li>
+        <li>The voyage stamp is pressed in the curator's ink, because this voyage is theirs.</li>
+        <li>"Pages left" is the only urgency the brand allows, because it is true.</li>
+        <li>A partner (an agency) sells the same way, with its own template, under the co-branding rules in the brand book.</li>
+      </ul>
+    </div>
+    <div class="phones">
+      <div>
+        <div class="phone"><div class="scr">
+          <div class="body" style="overflow:hidden">
+            <div class="ph fill" style="height:220px"><img src="photos/kilkea.webp" alt="Kilkea Castle" style="object-position:center 70%"><div class="ov" style="padding-bottom:14px"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#A9DCC9">KK</span>Katherine &amp; Konstantin</span><div class="n" style="font-size:24px;font-family:var(--title);font-weight:500">The Green Road, again</div><div class="c">Scotland &amp; Ireland · 7 days · October 2027</div></div></div>
+            <div class="pad row" style="margin-top:12px;justify-content:space-between"><div class="vstamp" style="color:var(--grass)"><span class="name">The Green Road</span><span class="dates">14 – 21 Oct 2027</span></div><div style="text-align:right"><div class="h" style="font-size:22px">$1,900</div><div class="m" style="font-size:12px;color:var(--inksoft)">per traveller · 6 of 12 pages left</div></div></div>
+            <div class="sec"><span class="t">What a page holds</span></div>
+            <div class="pad fact" style="font-size:15px;display:grid;gap:5px">
+              <div>A voyage of your own in the Storybook, with the Seanchaí to look after the loose ends.</div>
+              <div>Eleven stamped places, two dinners already held, and the long table at Kilkea on the last night.</div>
+              <div>Katherine &amp; Konstantin there for the first two days and the last.</div>
+              <div class="m" style="color:var(--inksoft);font-size:13px">Not included: flights, the hotels (three options are held), what you drink.</div>
+            </div>
+            <div class="sec"><span class="t">Who is coming</span></div>
+            <div class="pad stamped" style="font-size:12px"><span class="avs"><span class="cs sm" style="color:var(--wine)">PB</span><span class="cs sm" style="color:var(--seine)">JL</span><span class="cs sm" style="color:var(--heather)">SB</span><span class="cs sm" style="color:var(--brass)">TN</span></span>6 travellers so far · 2 you follow</div>
+          </div>
+          <div class="ctabar"><span class="btn red">Reserve a page</span><span class="btn ghost">Ask K &amp; K</span></div>
+        </div></div>
+        <div class="cap">A package · pages for sale</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 09 ASK ========== -->
+  <section class="screen-sec">
+    <div class="notes">
+      <div class="eyebrow">09 · Ask</div>
+      <h2>Ask the curators</h2>
+      <p>A question in plain words, answered from stamps. The house composes the answer and never pretends to have been there: every line is a curator's, attributed, in their hand. For a sharper answer, supporters can ask a curator directly.</p>
+      <ul>
+        <li>This is the network's narrator, and it has no name and no "I", because the house does not speak in the first person. The curators do the speaking.</li>
+        <li>The answer says where it came from: how many curators, how many you follow, how recent.</li>
+        <li>When nothing fits, it says so: "No curator you follow has stamped a place like that in St. Louis. Here are three from curators they follow."</li>
+      </ul>
+    </div>
+    <div class="phones">
+      <div>
+        <div class="phone"><div class="scr">
+          <div class="top"><span class="wm">Ask</span><span class="cs" style="color:var(--heather)">SB</span></div>
+          <div class="body">
+            <div class="paper" style="background:var(--raised);border:0"><div class="fact" style="font-size:16px">Graduation dinner for six in St. Louis, somewhere the parents will love and the graduate won't be embarrassed by.</div></div>
+            <div class="pad" style="margin-top:12px"><div class="t">Three places · from 4 curators you follow · all stamped this year</div></div>
+            <div class="paper">
+              <div class="note"><span class="cs" style="color:var(--brass)">TN</span><div><div class="who">Theo N. · Sidney Street Café</div><div class="hand">the round table in the back seats six and nobody rushes you.</div></div></div>
+              <div class="note"><span class="cs" style="color:var(--grass)">KK</span><div><div class="who">Katherine &amp; Konstantin · Olive &amp; Oak</div><div class="hand">parents love it, and the dessert list is long enough for a speech.</div></div></div>
+              <div class="note"><span class="cs" style="color:var(--heather)">MJ</span><div><div class="who">Mara J. · Vicia</div><div class="hand">if the parents are paying. the garden room.</div></div></div>
+            </div>
+            <div class="pad row" style="margin-top:12px"><span class="btn ghost">Show on the map</span><span class="btn ghost">Ask Theo · supporters</span></div>
+            <div class="pad" style="margin-top:16px;font-size:13px;color:var(--inksoft)">Answers come only from stamps. Nothing here was paid for, and nothing was guessed.</div>
+          </div>
+          <div class="tabs"><span>For you</span><span>Places</span><span>Curators</span><span class="on">Ask</span><span>Passport</span></div>
+        </div></div>
+        <div class="cap">Ask · answered from stamps</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DESKTOP HOME ========== -->
+  <section class="screen-sec" style="grid-template-columns:1fr">
+    <div class="notes">
+      <div class="eyebrow">01 again · Home at desktop width</div>
+      <h2>The same page, wider</h2>
+      <p>Four columns of moments, the house line on the left, the curators on the right. Nothing on the desktop that is not on the phone; the desktop only has more room for photographs.</p>
+    </div>
+    <div class="browser">
+      <div class="bar"><i></i><i></i><i></i><span>moivoyage.example</span></div>
+      <div class="dnav"><span class="wm" style="font-size:14px">Moi Voyage</span><div class="links"><b>Latest</b><span>Places</span><span>Curators</span><span>Ask</span><span>Passport</span></div><span class="btn ghost" style="padding:8px 14px">Sign in</span></div>
+      <div class="dhero"><div><div class="h">Places loved by people with taste.</div><div class="fact" style="margin-top:8px;color:var(--inksoft)">Curators share the places they love, in their own words. Follow the ones whose taste you trust. Nobody pays for a stamp.</div></div><div class="row" style="justify-content:flex-end;gap:14px"><span class="t">Stamped this week by</span><span class="avs"><span class="cs" style="color:var(--grass)">KK</span><span class="cs" style="color:var(--brass)">RM</span><span class="cs" style="color:var(--seine)">JL</span><span class="cs" style="color:var(--wine)">PB</span><span class="cs" style="color:var(--heather)">MJ</span></span><span class="t">and 36 more</span></div></div>
+      <div class="dmas">
+        <div class="ph" style="aspect-ratio:3/4"><img src="photos/edinburgh.webp" alt="Edinburgh Castle"><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#A9DCC9">KK</span>Katherine &amp; Konstantin</span><div class="n">The Gardens at dusk</div><div class="c">Edinburgh</div></div></div>
+        <div class="ph" style="aspect-ratio:4/5"><div class="food f1"><span>photo · the lamb, Thistle Street</span></div><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#E8A33D">RM</span>Rosa M.</span><div class="n">Thistle Street Bar</div><div class="c">Edinburgh</div></div></div>
+        <div class="ph" style="aspect-ratio:1"><img src="photos/paris.webp" alt="Pont Alexandre III"><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#A9C8E8">JL</span>Jules L.</span><div class="n">Pont Alexandre III, 7am</div><div class="c">Paris</div></div></div>
+        <div class="ph" style="aspect-ratio:3/4"><img src="photos/dublin.webp" alt="Ha'penny Bridge"><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#F2B8C6">AO</span>Aoife O.</span><div class="n">Ha'penny, before the crowds</div><div class="c">Dublin</div></div></div>
+        <div class="ph" style="aspect-ratio:4/5"><div class="food f2"><span>photo · the custard tart</span></div><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#F6DE9A">TN</span>Theo N.</span><div class="n">Gloria's</div><div class="c">St. Louis</div></div></div>
+        <div class="ph" style="aspect-ratio:1"><img src="photos/london.webp" alt="Palace of Westminster"><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#C9B8E0">MJ</span>Mara J.</span><div class="n">Westminster from the south bank</div><div class="c">London</div></div></div>
+        <div class="ph" style="aspect-ratio:3/4"><img src="photos/york.webp" alt="York Minster"><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#A9DCC9">KK</span>Katherine &amp; Konstantin</span><div class="n">Why we go to York first</div><div class="c">York · letter</div></div></div>
+        <div class="ph" style="aspect-ratio:4/5"><div class="food f3"><span>photo · oysters, Howth</span></div><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#F2B8C6">AO</span>Aoife O.</span><div class="n">The Lobster Shack</div><div class="c">Howth</div></div></div>
+        <div class="ph" style="aspect-ratio:1"><img src="photos/glasgow.webp" alt="University of Glasgow tower"><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#A9DCC9">KK</span>Katherine &amp; Konstantin</span><div class="n">Kelvingrove in the rain</div><div class="c">Glasgow</div></div></div>
+        <div class="ph" style="aspect-ratio:3/4"><img src="photos/kilkea.webp" alt="Kilkea Castle"><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#A9DCC9">KK</span>Katherine &amp; Konstantin</span><div class="n">Kilkea, the long table</div><div class="c">Kildare · package</div></div></div>
+        <div class="ph" style="aspect-ratio:4/5"><div class="food f5"><span>photo · the counter, Noto</span></div><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#E8A33D">RM</span>Rosa M.</span><div class="n">Noto</div><div class="c">Edinburgh</div></div></div>
+        <div class="ph" style="aspect-ratio:1"><div class="food f6"><span>photo · the back patio, The Royale</span></div><div class="ov"><span class="cur" style="color:#F6F4EF"><span class="cs sm" style="color:#F6DE9A">TN</span>Theo N.</span><div class="n">The Royale</div><div class="c">St. Louis</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <h2 style="margin-top:56px">Words the network uses</h2>
+  <table>
+    <tr><th>Thing</th><th>Called</th><th>Not</th></tr>
+    <tr><td>A person who shares places</td><td>a curator</td><td>influencer, creator, publisher</td></tr>
+    <tr><td>Their page</td><td>their journal</td><td>profile, channel, newsletter</td></tr>
+    <tr><td>Recommending a place; keeping one</td><td>to stamp it</td><td>like, save, pin, review, rate</td></tr>
+    <tr><td>A photo with a line</td><td>a moment</td><td>post, story, reel</td></tr>
+    <tr><td>A longer piece</td><td>a letter</td><td>post, article, blog</td></tr>
+    <tr><td>A day-by-day plan</td><td>an itinerary</td><td>guide, listicle</td></tr>
+    <tr><td>A voyage for sale</td><td>a package, with pages</td><td>tour, trip, product, seats</td></tr>
+    <tr><td>Following; paying</td><td>follow; support</td><td>subscribe (free), subscribe (paid)</td></tr>
+    <tr><td>The question box</td><td>Ask</td><td>search, chat, assistant</td></tr>
+  </table>
+
+  <h2 style="margin-top:48px">Open questions these mockups raise</h2>
+  <ul>
+    <li><b>What stops stamps being bought?</b> The promise "nobody pays for a stamp" needs a rule: curators disclose comped meals and stays on the stamp, and a stamp with a disclosure shows it. Mock a disclosed stamp next.</li>
+    <li><b>Where do comments live?</b> Proposed: on letters only. Moments and stamps are not debated.</li>
+    <li><b>How does a traveller's own passport look here?</b> The Passport tab should hold their stamps (places kept) and their voyages (pages). The earlier house sheet shows the voyages half; the stamps half is next.</li>
+    <li><b>Does the house's narrator in Ask need a name?</b> Proposed no: it has no "I" and quotes curators. If it ever acts (holds a table), it needs one.</li>
+    <li><b>Partner journals.</b> An agency's journal looks like a curator's with a different kind of stamp (a square?) so travellers can tell a business from a person at a glance.</li>
+  </ul>
+
+  <div class="cred">
+    Place photographs from Wikimedia Commons, cropped and re-encoded for The Green Road and reused here: Paris by David McSpadden (CC BY 2.0); London by Julian Herzog (CC BY 4.0); York by mattbuck (CC BY-SA 3.0); Edinburgh by John Lord (CC BY-SA 2.0); Glasgow by LornaMCampbell (CC BY-SA 4.0); Dublin by Sean MacEntee (CC BY 2.0); Kilkea by dougf (CC BY-SA 2.0). Links and file names are in <a href="https://github.com/konstantinbrazhnik/moi-voyage-branding/blob/claude/cool-ritchie-y96yif/network/photos/CREDITS.md">network/photos/CREDITS.md</a>. Tiles marked "photo" are stand-ins. Places, dishes, curators and prices are examples.
+  </div>
+</div>

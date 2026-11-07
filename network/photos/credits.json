@@ -1,0 +1,44 @@
+{
+ "paris": {
+  "title": "Eiffel Tower from Pont Alexandre III, Paris 24 May 2014.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Eiffel_Tower_from_Pont_Alexandre_III,_Paris_24_May_2014.jpg",
+  "artist": "David McSpadden from Daly City, United States",
+  "license": "CC BY 2.0"
+ },
+ "london": {
+  "title": "Palace of Westminster London 2023 01.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Palace_of_Westminster_London_2023_01.jpg",
+  "artist": "Julian Herzog (Website)",
+  "license": "CC BY 4.0"
+ },
+ "york": {
+  "title": "York MMB 05 York Minster.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:York_MMB_05_York_Minster.jpg",
+  "artist": "mattbuck (category)",
+  "license": "CC BY-SA 3.0"
+ },
+ "edinburgh": {
+  "title": "Edinburgh Castle, from Princes Street Gardens - geograph.org.uk - 5417710.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Edinburgh_Castle,_from_Princes_Street_Gardens_-_geograph.org.uk_-_5417710.jpg",
+  "artist": "John Lord",
+  "license": "CC BY-SA 2.0"
+ },
+ "glasgow": {
+  "title": "University of Glasgow tower, from Kelvingrove Park, 2.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:University_of_Glasgow_tower,_from_Kelvingrove_Park,_2.jpg",
+  "artist": "LornaMCampbell",
+  "license": "CC BY-SA 4.0"
+ },
+ "dublin": {
+  "title": "Ha'penny Bridge over River Liffey, Dublin (14167446457).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Ha%27penny_Bridge_over_River_Liffey,_Dublin_(14167446457).jpg",
+  "artist": "Sean MacEntee from Monaghan, Ireland",
+  "license": "CC BY 2.0"
+ },
+ "kilkea": {
+  "title": "Kilkea Castle - geograph.org.uk - 2329542.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Kilkea_Castle_-_geograph.org.uk_-_2329542.jpg",
+  "artist": "dougf",
+  "license": "CC BY-SA 2.0"
+ }
+}

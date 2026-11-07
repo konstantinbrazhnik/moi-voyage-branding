@@ -115,3 +115,4 @@ line has an exclamation mark.
 | the loose ends | logistics, admin, tasks |
 | your companion | collaborator, member, user |
 | stamped | completed, done |
+| a curator; their journal; to stamp; a moment; a letter; a package with pages; follow / support; Ask | influencer, profile, like / save / rate, post, article, tour, subscribe, search (see `NETWORK.md` §5) |
